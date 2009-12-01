@@ -1,0 +1,17 @@
+inherit java
+
+DESCRIPTION="Java design quality metrics generator"
+HOMEPAGE="http://www.clarkware.com/software/JDepend.html"
+SRC_URI="http://www.clarkware.com/software/${ORIG_PN}-${PV}.zip"
+
+DIFF_EXCLUDES="docs"
+
+ANT_TARGETS="jar javadoc"
+
+src_install() {
+	cd ${B}
+	dojar dist/*.jar
+	dojavadoc build/docs/api
+
+	java_wrapper jdepend ${JAVA_DIR}/jdepend.jar jdepend.textui.JDepend
+}
