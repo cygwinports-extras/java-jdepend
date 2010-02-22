@@ -1,4 +1,4 @@
-inherit java
+inherit ant
 
 DESCRIPTION="Java design quality metrics generator"
 HOMEPAGE="http://www.clarkware.com/software/JDepend.html"
@@ -6,7 +6,7 @@ SRC_URI="http://www.clarkware.com/software/${ORIG_PN}-${PV}.zip"
 
 DIFF_EXCLUDES="docs"
 
-ANT_TARGETS="jar javadoc"
+ANT_BUILD_TARGETS="jar javadoc"
 
 src_install() {
 	cd ${B}
